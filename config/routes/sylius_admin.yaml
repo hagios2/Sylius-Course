@@ -1,0 +1,30 @@
+sylius_admin:
+    resource: "@SyliusAdminBundle/Resources/config/routing.yml"
+    prefix: '/%sylius_admin.path_name%'
+
+sylius_paypal_admin:
+    resource: "@SyliusPayPalPlugin/Resources/config/admin_routing.yml"
+    prefix: '/%sylius_admin.path_name%'
+
+
+app_supplier:
+    resource: |
+        alias: app.supplier
+        section: admin
+        templates: "@SyliusAdmin/Crud"
+        except: ['show']
+        grid: app_admin_supplier
+    type: sylius.resource
+    prefix: /admin 
+        
+app_admin_supplier_trust:
+    path: /admin/suppliers/{id}/trust
+    methods: [PUT]
+    defaults: 
+        _controller: app.controller.supplier:applyStateMachineTransitionAction
+        _sylius:
+            state_machine:
+                graph: app_supplier
+                transition: trust
+            redirect: referer
+            flash: app.ui.supplier_trusted
