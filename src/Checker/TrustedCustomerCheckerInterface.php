@@ -2,7 +2,9 @@
 
 namespace App\Checker;
 
-class TrustedCustomerCheckerInterface
-{
+use Sylius\Component\Core\Model\CustomerInterface;
 
+interface TrustedCustomerCheckerInterface
+{
+    public function check(CustomerInterface $customer): bool;
 }
