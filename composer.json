@@ -47,7 +47,7 @@
         "lchrusciel/api-test-case": "^5.0",
         "phpspec/phpspec": "^7.0",
         "phpstan/extension-installer": "^1.0",
-        "phpstan/phpstan": "0.12.90",
+        "phpstan/phpstan": "^0.12.96",
         "phpstan/phpstan-doctrine": "0.12.39",
         "phpstan/phpstan-webmozart-assert": "0.12.12",
         "phpunit/phpunit": "^8.5",
@@ -57,7 +57,8 @@
         "symfony/debug-bundle": "^4.4 || ^5.2",
         "symfony/intl": "^4.4 || ^5.2",
         "symfony/maker-bundle": "^1.33",
-        "symfony/web-profiler-bundle": "^4.4 || ^5.2"
+        "symfony/web-profiler-bundle": "^4.4 || ^5.2",
+        "symfony/web-server-bundle": "^4.4"
     },
     "config": {
         "preferred-install": {

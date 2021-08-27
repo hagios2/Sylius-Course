@@ -17,6 +17,15 @@ app_supplier:
     type: sylius.resource
     prefix: /admin 
         
+app_api_supplier:
+    resource: |
+        alias: app.supplier
+        section: api_admin
+        grid: app_admin_supplier
+    type: sylius.resource_api
+    prefix: /api/admin
+    
+    
 app_admin_supplier_trust:
     path: /admin/suppliers/{id}/trust
     methods: [PUT]

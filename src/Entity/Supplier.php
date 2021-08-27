@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -32,6 +33,11 @@ class Supplier implements SupplierInterface
      * @ORM\Column(type="string", length=255)
      */
     private $email;
+
+    /** @var Collection
+     * @ORM\OneToMany(targetEntity="App\Entity\Product\Product", mappedBy="supplier")
+     */
+    private Collection $products;
 
     /**
      * @var  string
@@ -78,6 +84,18 @@ class Supplier implements SupplierInterface
     public function setEmail(?string $email): void
     {
         $this->email = $email;
+    }
 
+    /**
+     * @return Collection
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function countProducts(): int
+    {
+        return $this->products->count();
     }
 }
